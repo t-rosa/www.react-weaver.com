@@ -1,17 +1,49 @@
 ---
+import { Font } from "astro:assets";
+import SEO from "../components/SEO.astro";
 import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  keywords?: string;
+  structuredData?: Record<string, any>;
+}
+
+const {
+  title = "React Weaver",
+  description = "Full Stack SPA Template with React and ASP.NET Core",
+  ogImage = "/og-image.png",
+  keywords = "template, full stack, react, asp.net core, SaaS",
+  structuredData,
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>React Weaver</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <SEO
+      title={title}
+      description={description}
+      ogImage={ogImage}
+      keywords={keywords}
+      canonical={Astro.url.href}
+      robots="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      twitterCreator="@t_rosa"
+      structuredData={structuredData}
+    />
+    <meta name="apple-mobile-web-app-title" content="react-weaver" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <slot />
+  </body><Font cssVariable="--font-montserrat" preload />
+  <Font cssVariable="--font-ibm-plex-mono" preload />
+  <Font cssVariable="--font-inter" preload />
 </html>

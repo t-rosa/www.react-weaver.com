@@ -1,0 +1,100 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogType?: "website" | "profile";
+  canonical?: string;
+  keywords?: string;
+  author?: string;
+  viewport?: string;
+  robots?: string;
+  twitterCard?: "summary" | "summary_large_image";
+  twitterCreator?: string;
+  twitterSite?: string;
+  structuredData?: Record<string, any>;
+}
+
+const {
+  title,
+  description,
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = "/og-image.png",
+  ogType = "website",
+  canonical = Astro.url.href,
+  keywords = "",
+  author = "Toma ROSA",
+  viewport = "width=device-width, initial-scale=1.0",
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  twitterCard = "summary_large_image",
+  twitterCreator = "@t-rosa",
+  twitterSite = "@t-rosa",
+  structuredData,
+} = Astro.props;
+
+const finalCanonical = new URL(canonical, Astro.url.origin).href;
+---
+
+<title>{title}</title>
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content={viewport} />
+<meta name="description" content={description} />
+{keywords && <meta name="keywords" content={keywords} />}
+<meta name="author" content={author} />
+<meta name="robots" content={robots} />
+<meta name="theme-color" content="#000000" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={finalCanonical} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={finalCanonical} />
+<meta property="og:title" content={ogTitle} />
+<meta property="og:description" content={ogDescription} />
+<meta property="og:image" content={new URL(ogImage, Astro.url.origin).href} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Toma ROSA" />
+<meta property="og:locale" content="fr_FR" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content={twitterCard} />
+<meta property="twitter:url" content={finalCanonical} />
+<meta property="twitter:title" content={ogTitle} />
+<meta property="twitter:description" content={ogDescription} />
+<meta
+  property="twitter:image"
+  content={new URL(ogImage, Astro.url.origin).href}
+/>
+<meta property="twitter:creator" content={twitterCreator} />
+<meta property="twitter:site" content={twitterSite} />
+
+<!-- Icon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="React Weaver" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<!-- Preconnect to external resources -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="dns-prefetch" href="https://github.com" />
+<link rel="dns-prefetch" href="https://www.linkedin.com" />
+
+<!-- Structured Data (JSON-LD) -->
+{
+  structuredData && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+  )
+}
