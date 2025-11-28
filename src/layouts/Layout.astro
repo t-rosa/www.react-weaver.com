@@ -1,6 +1,7 @@
 ---
 import { Font } from "astro:assets";
 import SEO from "../components/SEO.astro";
+import Header from "../components/header.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -33,17 +34,10 @@ const {
       twitterCreator="@t_rosa"
       structuredData={structuredData}
     />
-    <meta name="apple-mobile-web-app-title" content="react-weaver" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
-    <meta name="generator" content={Astro.generator} />
   </head>
   <body>
+    <Header />
     <slot />
-  </body><Font cssVariable="--font-montserrat" preload />
-  <Font cssVariable="--font-ibm-plex-mono" preload />
+  </body><Font cssVariable="--font-ibm-plex-mono" preload />
   <Font cssVariable="--font-inter" preload />
 </html>

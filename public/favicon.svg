@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 512 512"><defs><clipPath id="a"><rect width="512" height="512" rx="0" ry="0"/></clipPath>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="oklch(0.586 0.253 17.585)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-code-icon lucide-code" viewBox="0 0 512 512"><defs><clipPath id="a"><rect width="512" height="512" rx="0" ry="0"/></clipPath>
   <style>
     @media (prefers-color-scheme: dark) {
       svg { filter: invert(0%) hue-rotate(0deg) saturate(100%) contrast(100%) brightness(1); }
     }
-  </style></defs><g fill="oklch(0.645 0.246 16.439)" clip-path="url(#a)"><path d="m150.88 209.344-43.904 43.904a96.008 96.008 0 1 0 135.776 135.776l58.496-58.528A96 96 0 0 0 274.752 176L256 194.752a32 32 0 0 0-4.928 6.368 64 64 0 0 1 27.552 106.784L220.16 366.4a64.036 64.036 0 1 1-90.56-90.56l25.376-25.344a128 128 0 0 1-4.096-41.184z"/><path d="M210.752 149.504A96 96 0 0 0 237.248 304l24.8-24.832a64 64 0 0 1-28.672-107.072L291.84 113.6a64.036 64.036 0 1 1 90.56 90.56l-25.376 25.344a128.7 128.7 0 0 1 4.096 41.184l43.904-43.904A96.008 96.008 0 1 0 269.248 91.008z"/></g></svg>
+  </style></defs><g clip-path="url(#a)"><path stroke-width="42.667" d="m341.333 384 128-128-128-128m-170.666 0-128 128 128 128"/></g></svg>

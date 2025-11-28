@@ -14,11 +14,6 @@ export default defineConfig({
     fonts: [
       {
         provider: fontProviders.fontsource(),
-        name: "Montserrat",
-        cssVariable: "--font-montserrat",
-      },
-      {
-        provider: fontProviders.fontsource(),
         name: "Inter",
         cssVariable: "--font-inter",
       },
