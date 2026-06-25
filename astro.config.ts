@@ -1,6 +1,6 @@
 // @ts-check
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig, fontProviders, svgoOptimizer } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,19 +9,19 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: "Inter",
+      cssVariable: "--font-inter",
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: "IBM Plex Mono",
+      cssVariable: "--font-ibm-plex-mono",
+    },
+  ],
   experimental: {
-    svgo: true,
-    fonts: [
-      {
-        provider: fontProviders.fontsource(),
-        name: "Inter",
-        cssVariable: "--font-inter",
-      },
-      {
-        provider: fontProviders.fontsource(),
-        name: "IBM Plex Mono",
-        cssVariable: "--font-ibm-plex-mono",
-      },
-    ],
+    svgOptimizer: svgoOptimizer(),
   },
 });
